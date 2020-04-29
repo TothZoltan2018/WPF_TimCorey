@@ -29,12 +29,35 @@
         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36"
                    Text="WPF Super Demo" Grid.ColumnSpan="3"
                    Margin="0, 0, 0, 10"/>
+        
         <TextBlock Grid.Column="1" Grid.Row="2" FontWeight="SemiBold"
                    Text="First Name" FontFamily="Segoe UI"/>
+        
         <TextBox x:Name="firstNameText" Grid.Row="2" Grid.Column="2"
                  Width="150"/>
+        
+        <ComboBox x:Name="myComboBox" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="10">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
         <Button x:Name="submitButton" Content="Run Me" Grid.Column="1"
-                Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Click="submitButton_Click"/>
+                Grid.Row="4" Grid.ColumnSpan="2" Margin="10" Click="submitButton_Click"/>
 
+        <!--<Image Grid.Row="1" Grid.Column="4" Grid.RowSpan="6" Source="C:\Users\ZoliRege\Documents\20200427_145604.jpg"/>-->
+        <!--<MediaElement Grid.Row="1" Grid.Column="4" Grid.RowSpan="6" Source="C:\Users\ZoliRege\Documents\20190601_165427.mp4"/>-->
+        <!--WrapPanel vs StackPanel-->
+        <ScrollViewer Grid.Row="1" Grid.Column="4" Grid.RowSpan="6">
+            <StackPanel 
+                        Orientation="Vertical">
+                <Image MaxHeight="200" MaxWidth="200" Source="C:\Users\ZoliRege\Documents\20200427_145604.jpg"/>
+                <Image MaxHeight="200" MaxWidth="200" Source="C:\Users\ZoliRege\Documents\20200427_145604.jpg"/>
+                <Image MaxHeight="200" MaxWidth="200" Source="C:\Users\ZoliRege\Documents\20200427_145604.jpg"/>
+                <Image MaxHeight="200" MaxWidth="200" Source="C:\Users\ZoliRege\Documents\20200427_145604.jpg"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
