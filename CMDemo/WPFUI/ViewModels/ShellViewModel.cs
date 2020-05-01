@@ -8,7 +8,7 @@ using WPFUI.Models;
 
 namespace WPFUI.ViewModels
 {
-    public class ShellViewModel : Screen //Screen support open and closing UI in some useful ways
+    public class ShellViewModel : Conductor<object>
     {
 		private string  _firstName ="Zoli";
 		private string _lastName;
@@ -30,7 +30,6 @@ namespace WPFUI.ViewModels
 				_firstName = value;
 				NotifyOfPropertyChange(() => FirstName);
 				NotifyOfPropertyChange(() => FullName);
-
 			}
 		}
 
@@ -93,7 +92,13 @@ namespace WPFUI.ViewModels
 
 		public void LoadPageOne()
 		{
-		
+			//For this metoh, we inhereted this class from Conductor class.
+			ActivateItem(new FirstChildViewModel());
 		}
-    }
+
+		public void LoadPageTwo()
+		{			
+			ActivateItem(new SecondChildViewModel());
+		}
+	}
 }
