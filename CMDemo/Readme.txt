@@ -1,4 +1,4 @@
-
+##################### Environment setup for WPF with Caliburn.Micro #################
 1. Install Caliburn.Micro (CM) nuget package
 2. Delete MainwWindow.xaml
 3. In App.xaml take out StartupUri="MainWindow.xaml"
@@ -45,5 +45,14 @@ Adding Models, Views and ViewModels to our project
 ViewModels\ShellViewModel.cs, make it public and inherit from Screen.
 Views\ShellView.xaml
 
-
 If we run the project, works. Because of naming conventions, Caliburn Micro arranges that the starting ShellViewModel starts the ShellView (the UI).
+
+##################### CM Feature: Enable/Dissable Button by naming conventions ##################### 
+ClearText() and CanClearText()
+
+##################### CM Feature: Second form. ##################### 
+        <ContentControl Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
+                        x:Name="ActiveItem"/> <!--Keyword for CM: This is an active child form-->
+
+Class Screen, which our ViewModel is inhereted from takes care only of rone Form. Therefore we do not inherit from this, but from class Conductor
+
