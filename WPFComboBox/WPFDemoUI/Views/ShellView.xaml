@@ -17,14 +17,20 @@
 
         <!--<ComboBox Grid.Row="0" ItemsSource="{Binding People}">-->
         <!--The same as above, just with CM standard:-->
-        <ComboBox Grid.Row="0" x:Name="People">
+        <ComboBox Grid.Row="0" x:Name="People" SelectedItem="{Binding SelectedPerson}">
             <!--ItemTemplate allows to display multiple properties-->
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <!--x:Name would not work here, inside this kind of foreach loop-->
-                    <TextBlock Text="{Binding FullName}" />
+                    <StackPanel Orientation="Horizontal">
+                        <!--x:Name would not work here, inside this kind of foreach loop-->
+                        <TextBlock Text="{Binding FullName}" />
+                        <TextBlock Text=" - Are They alive: " />
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsAlive}"/>
+                    </StackPanel>                    
                 </DataTemplate>                
             </ComboBox.ItemTemplate>
         </ComboBox>
-    </Grid>
+        <!--SelectedPerson.FullName in ShellViewModel.cs-->
+        <TextBlock x:Name="SelectedPerson_FullName" Grid.Row="1"/>        
+    </Grid> 
 </Window>
