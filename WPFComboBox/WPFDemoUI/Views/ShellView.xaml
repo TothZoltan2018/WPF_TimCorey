@@ -14,5 +14,17 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <!--<ComboBox Grid.Row="0" ItemsSource="{Binding People}">-->
+        <!--The same as above, just with CM standard:-->
+        <ComboBox Grid.Row="0" x:Name="People">
+            <!--ItemTemplate allows to display multiple properties-->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <!--x:Name would not work here, inside this kind of foreach loop-->
+                    <TextBlock Text="{Binding FullName}" />
+                </DataTemplate>                
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </Window>
