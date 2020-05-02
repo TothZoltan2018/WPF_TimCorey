@@ -30,7 +30,20 @@
                 </DataTemplate>                
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <!--SelectedPerson.FullName in ShellViewModel.cs-->
-        <TextBlock x:Name="SelectedPerson_FullName" Grid.Row="1"/>        
+
+        <TextBlock x:Name="SelectedPerson_FullName" Grid.Row="1"/>
+
+        <ComboBox Grid.Row="2" x:Name="SelectedPerson_Addresses" SelectedItem="{Binding SelectedAddress}">            
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <!--<StackPanel Orientation="Horizontal">-->                        
+                        <TextBlock Text="{Binding FullAddress}" />
+                    <!--</StackPanel>-->
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock x:Name="SelectedAddress_FullAddress" Grid.Row="3"/>
+        
     </Grid> 
 </Window>

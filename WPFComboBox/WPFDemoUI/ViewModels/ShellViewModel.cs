@@ -21,10 +21,23 @@ namespace WPFDemoUI.ViewModels
             set
             {
                 _selectedPerson = value;
+                SelectedAddress = value.PrimaryAddress;
                 NotifyOfPropertyChange(() => SelectedPerson);                
             }
         }
+               
+        private AddressModel _selectedAddress;
 
+        public AddressModel SelectedAddress
+        {
+            get { return _selectedAddress; }
+            set 
+            {
+                _selectedAddress = value;
+                SelectedPerson.PrimaryAddress = value;
+                NotifyOfPropertyChange(() => SelectedAddress);
+            }
+        }
 
         public ShellViewModel()
         {
