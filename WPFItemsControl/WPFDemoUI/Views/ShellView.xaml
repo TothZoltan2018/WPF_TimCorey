@@ -14,9 +14,22 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="AddPerson" Content="Add New Person"/>
+            <Button x:Name="RemovePerson" Content="Remove Random Person"/>
+        </StackPanel>
         
         <!--It's a kind of foreach on the People (contains Persons)-->
-        <ItemsControl ItemsSource="{Binding People}" Grid.Row="0">
+        <ItemsControl ItemsSource="{Binding People}" Grid.Row="1">
+            <!--How to list the Persons in the People Colection-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>                    
+                    <!--<StackPanel Orientation="Horizontal"/>-->
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
             <!--This will be used for every single row in our set-->
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
