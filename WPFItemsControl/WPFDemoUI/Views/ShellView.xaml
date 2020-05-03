@@ -14,5 +14,20 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
+        <!--It's a kind of foreach on the People (contains Persons)-->
+        <ItemsControl ItemsSource="{Binding People}" Grid.Row="0">
+            <!--This will be used for every single row in our set-->
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding FullName}"/>
+                            <TextBlock Text="{Binding AccountBalance}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>
